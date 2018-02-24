@@ -1,7 +1,7 @@
 angular.module('meusServicos', ['ngResource'])
 .factory('recursoLivro', function($resource){
 
-    return $resource('http://localhost:17735/api/Livros/:LivroId', null, {
+    return $resource('http://localhost:17735/api/Livro/:LivroId', null, {
         update : {
             method: 'PUT'
         }
@@ -9,7 +9,7 @@ angular.module('meusServicos', ['ngResource'])
 
 })
 .factory('buscaLivros', function($resource){
-    return $resource('http://localhost:17735/api/Livros/BuscarLivros', null, {
+    return $resource('http://localhost:17735/api/Livro/BuscarLivros', null, {
 
         get: {
             method: 'GET',
@@ -18,7 +18,7 @@ angular.module('meusServicos', ['ngResource'])
     });
 })
 .factory('deletaLivro', function($resource){
-    return $resource('http://localhost:17735/api/Livros/:ID', null, {
+    return $resource('http://localhost:17735/api/Livro/:ID', null, {
 
         delete: {
             method: 'DELETE'
@@ -26,7 +26,7 @@ angular.module('meusServicos', ['ngResource'])
     });
 })
 .factory('buscaLivro', function($resource){
-    return $resource('http://localhost:17735/api/Livros/:LivroId', null, {
+    return $resource('http://localhost:17735/api/Livro/:LivroId', null, {
 
         get: {
             method: 'GET',
