@@ -1,0 +1,28 @@
+<div class="jumbotron">
+    <h1 class="text-center">Livros</h1>
+</div>
+
+<p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+
+<div class="row">
+    <div class="col-md-12">
+        <form>
+            <div class="input-group">
+
+                <span class="input-group-btn">
+                    <a href="livros/new" class="btn btn-primary">Novo livro</a>
+                </span>
+
+                <input ng-model="filtro" ng-model-options="{debounce: 500}" 
+                class="form-control" placeholder="Pesquisar por nome">                
+            </div>
+            </form>
+    </div> <!-- fim col-md-12 -->
+</div> <!--fim row-->
+
+<div class="row">
+    <meu-painel class="col-md-2 painel-animado" ng-repeat="livro in livros | filter: filtro" titulo="{{livro.Titulo}}">
+        <a href="livros/edit/{{livro.ID}}" class="btn btn-primary btn-block">Editar</a>
+        <botao-perigo nome="Remover" acao="removerLivro(livro)"></botao-perigo>
+    </meu-painel>
+</div><!-- fim row -->

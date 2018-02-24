@@ -1,0 +1,42 @@
+<div class="page-header text-center">
+    <h1>{{livro.Titulo}}</h1>
+</div>
+
+<p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+
+<form name="formulario" class="row" ng-submit="cadastraLivro()" novalidate>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>T&iacute;tulo</label>
+            <input ng-model="livro.Titulo" name="titulo" class="form-control" ng-maxlength="80" required>
+            
+            <span ng-show="formulario.$submitted && formulario.titulo.$error.required" class="form-control alert-danger">
+                T&iacute;tulo obrigat&oacute;rio
+            </span>
+
+            <span ng-show="formulario.$submitted && formulario.titulo.$error.maxlength" class="form-control alert-danger">
+                T&iacute;tulo com mais de 80 caracteres
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label>Data de Lan&ccedil;amento</label>
+            <input ng-model="livro.DataLancamento" name="dataLancamento" class="form-control" required>
+            <span ng-show="formulario.$submitted && formulario.dataLancamento.$error.required" class="form-control alert-danger">
+                Data de Lan&ccedil;amento obrigat&oacute;ria
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label>Pre&ccedil;o</label>
+            <input ng-model="livro.Preco" name="preco" class="form-control" required>
+            <span ng-show="formulario.$submitted && formulario.preco.$error.required" class="form-control alert-danger">
+                Pre&ccedil;o obrigat&oacute;rio
+            </span>
+        </div>
+
+        <button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">Salvar</button>
+        <a href="/" class="btn btn-primary">Voltar</a>
+        <hr>
+    </div>
+</form>
