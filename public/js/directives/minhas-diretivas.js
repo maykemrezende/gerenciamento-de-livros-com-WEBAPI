@@ -24,4 +24,19 @@ angular.module('minhasDiretivas', [])
 	ddo.template = '<button class="btn btn-danger btn-block" ng-click="acao(livro)">{{nome}}</button>';
 
 	return ddo;
+})
+
+.directive("onFocusCustomizado", function(){
+
+	var ddo = {};
+
+	ddo.restrict = "A";
+
+	ddo.link = function(scope, element) {
+		scope.$on('livroCadastrado', function(){
+			element[0].focus();
+		});
+	}
+
+	return ddo;
 });

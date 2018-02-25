@@ -34,9 +34,10 @@ angular.module('meusServicos', ['ngResource'])
         }
     });
 })
-.factory('cadastroDeLivros', function(recursoLivro, $q){
+.factory('cadastroDeLivros', function(recursoLivro, $q, $rootScope){
 
     var servico = {};
+    var evento = 'livroCadastrado';
 
     servico.cadastrar = function(livro){
 
@@ -45,6 +46,8 @@ angular.module('meusServicos', ['ngResource'])
             if(livro.ID){
                 
                 recursoLivro.update({LivroId: livro.ID}, livro, function(){
+
+                    $rootScope.$broadcast(evento);
                     resolve({
                         mensagem: 'Livro ' + livro.Titulo + ' atualizado com sucesso!',
                         inclusao: false
@@ -59,6 +62,8 @@ angular.module('meusServicos', ['ngResource'])
             } else {
 
                 recursoLivro.save(livro, function(){
+
+                    $rootScope.$broadcast('livroCadastrado');
                     resolve({
                         mensagem: 'Livro ' + livro.Titulo + ' incluído com sucesso!',
                         inclusao: true
