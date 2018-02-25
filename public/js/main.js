@@ -1,4 +1,4 @@
-angular.module('vendalivros', ['minhasDiretivas', 'ngAnimate', 'ngRoute', 'meusServicos'])
+angular.module('vendalivros', ['diretivasCustom', 'ngAnimate', 'ngRoute', 'livrosServicos'])
 .config(function($routeProvider, $locationProvider){
 
     $locationProvider.html5Mode(true);
