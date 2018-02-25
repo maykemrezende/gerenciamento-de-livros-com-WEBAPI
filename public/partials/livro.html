@@ -29,7 +29,7 @@
 
         <div class="form-group">
             <label>Pre&ccedil;o</label>
-            <input ng-model="livro.Preco" name="preco" class="form-control" required>
+            <input ng-model="livro.Preco" name="preco" class="form-control" number-only="." required>
             <span ng-show="formulario.$submitted && formulario.preco.$error.required" class="form-control alert-danger">
                 Pre&ccedil;o obrigat&oacute;rio
             </span>
